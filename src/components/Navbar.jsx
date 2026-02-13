@@ -57,13 +57,17 @@ function Navbar() {
           ${scrolled ? "shadow-[0_8px_32px_rgba(0,0,0,0.37)]" : ""}
           `}
         >
-          {/* Logo */}
-          <h1
-            onClick={() => scrollToSection("home")}
-            className="text-lg md:text-2xl font-bold text-white cursor-pointer"
-          >
-            Praneeth<span className="text-cyan-400">.</span>
-          </h1>
+         {/* Logo */}
+<h1
+  onClick={() => scrollToSection("home")}
+  className="text-lg md:text-2xl font-bold cursor-pointer tracking-wide"
+>
+  <span className="text-white">Praneeth</span>{""}
+  <span className="text-cyan-400">J</span>{""}
+  <span className="text-gray-400">Acharya</span>
+  <span className="text-cyan-400">.</span>
+</h1>
+
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
