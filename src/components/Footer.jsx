@@ -117,7 +117,7 @@ function Footer() {
                         pulse-btn
                       "
                     >
-                      Let’s Talk
+                      Contact Me
                     </button>
 
                     {/* WhatsApp Button */}

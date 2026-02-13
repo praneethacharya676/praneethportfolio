@@ -97,7 +97,7 @@ function Navbar() {
             className="hidden md:block bg-cyan-500 hover:bg-cyan-600 text-black 
             font-semibold px-6 py-2 rounded-full transition duration-300"
           >
-            Let's Talk
+            Contact Me
           </button>
 
           {/* Mobile Hamburger */}
@@ -139,7 +139,7 @@ function Navbar() {
               className="w-full mt-4 bg-cyan-500
               text-black font-semibold py-2 rounded-full"
             >
-              Let's Talk
+              Contact Me
             </button>
           </div>
         )}
