@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import miteLogo from "../assets/mite-logo.png"
+import vijayaLogo from "../assets/vijaya-logo.png"
 
 function Counter({ target, label }) {
   const [count, setCount] = useState(0)
@@ -33,12 +35,8 @@ function Counter({ target, label }) {
 
 function About() {
   return (
-    <section
-  id="about"
-  className="bg-black text-white py-20 md:py-28"
->
-  <div className="max-w-7xl mx-auto px-6">
-
+    <section id="about" className="bg-black text-white py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-6">
 
         {/* Section Title */}
         <div className="text-center mb-14 md:mb-16">
@@ -51,26 +49,7 @@ function About() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
 
           {/* LEFT CONTENT */}
-          <div>
-        <h3 className="text-3xl font-semibold mb-6">
-            MCA Graduate & Aspiring IT Professional
-        </h3>
-
-        <p className="text-gray-400 leading-relaxed mb-6 text-justify">
-            I recently completed my Master of Computer Applications (MCA), where I developed a solid academic base in computing and information systems. My postgraduate journey enhanced my analytical thinking, research approach, and understanding of real-time industry practices. I am now seeking an opportunity to begin my professional career and continue learning.
-        </p>
-
-        <p className="text-gray-400 leading-relaxed mb-6 text-justify">
-            During my academic tenure, I actively participated in academic projects, presentations, and collaborative activities that strengthened my problem-solving abilities and professional communication. My education has provided me with a disciplined approach to handling responsibilities and adapting to new environments.
-        </p>
-
-
-        <p className="text-gray-400 leading-relaxed mb-10 text-justify">
-            My goal is to establish a stable and growth-oriented career in the IT industry, where I can apply my academic knowledge, learn from experienced professionals, and evolve both personally and professionally over time.
-        </p>
-        </div>
-
-
+         <div> <h3 className="text-3xl font-semibold mb-6"> MCA Graduate & Aspiring IT Professional </h3> <p className="text-gray-400 leading-relaxed mb-6 text-justify"> I recently completed my Master of Computer Applications (MCA), where I developed a solid academic base in computing and information systems. My postgraduate journey enhanced my analytical thinking, research approach, and understanding of real-time industry practices. I am now seeking an opportunity to begin my professional career and continue learning. </p> <p className="text-gray-400 leading-relaxed mb-6 text-justify"> During my academic tenure, I actively participated in academic projects, presentations, and collaborative activities that strengthened my problem-solving abilities and professional communication. My education has provided me with a disciplined approach to handling responsibilities and adapting to new environments. </p> <p className="text-gray-400 leading-relaxed mb-10 text-justify"> My goal is to establish a stable and growth-oriented career in the IT industry, where I can apply my academic knowledge, learn from experienced professionals, and evolve both personally and professionally over time. </p> </div>
 
           {/* RIGHT SIDE - EDUCATION */}
           <div>
@@ -83,61 +62,84 @@ function About() {
 
               <div className="space-y-8">
 
-                {/* MCA CARD */}
-                <div className="bg-black/40 border border-white/10 
-                rounded-2xl p-5 md:p-6 transition duration-300 
-                hover:border-cyan-400 hover:scale-[1.02]">
+               <div className="bg-black/40 border border-white/10 
+rounded-2xl p-6 transition duration-300 
+hover:border-cyan-400 hover:scale-[1.02]">
 
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+  <div className="flex items-start justify-between gap-4">
 
-                    <h5 className="text-lg md:text-xl font-semibold text-white">
-                      Master of Computer Applications
-                    </h5>
+    {/* LEFT SIDE (Logo + Content) */}
+    <div className="flex gap-5">
 
-                    <span className="text-xs md:text-sm 
-                    bg-gradient-to-r from-cyan-500 to-purple-500
-                    px-3 py-1 rounded-full text-black font-semibold self-start md:self-auto">
-                      2024-2025
-                    </span>
-                  </div>
+      <img
+        src={miteLogo}
+        alt="MITE Logo"
+        className="w-14 h-14 md:w-16 md:h-16 object-contain rounded-xl bg-white p-1"
+      />
 
-                  <p className="text-cyan-400 mt-3 text-sm md:text-base">
-                    Mangalore Institute of Technology and Engineering
-                  </p>
+      <div>
+        <h5 className="text-lg md:text-xl font-semibold text-white">
+          Master of Computer Applications
+        </h5>
 
-                  <p className="text-gray-400 text-xs md:text-sm mt-2">
-                    CGPA: <span className="text-white font-semibold">7.85</span>
-                  </p>
+        <p className="text-cyan-400 mt-1 text-sm md:text-base">
+          Mangalore Institute of Technology and Engineering
+        </p>
 
-                </div>
+        <p className="text-gray-400 text-sm mt-2">
+          CGPA: <span className="text-white font-semibold">7.85</span>
+        </p>
+      </div>
+    </div>
 
-                {/* BCA CARD */}
-                <div className="bg-black/40 border border-white/10 
-                rounded-2xl p-5 md:p-6 transition duration-300 
-                hover:border-cyan-400 hover:scale-[1.02]">
+    {/* YEAR BADGE */}
+    <span className="text-xs md:text-sm 
+    bg-gradient-to-r from-cyan-500 to-purple-500
+    px-4 py-1.5 rounded-full text-black font-semibold whitespace-nowrap">
+      2024 – 2025
+    </span>
 
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+  </div>
+</div>
 
-                    <h5 className="text-lg md:text-xl font-semibold text-white">
-                      Bachelor of Computer Applications
-                    </h5>
+               <div className="bg-black/40 border border-white/10 
+rounded-2xl p-6 transition duration-300 
+hover:border-cyan-400 hover:scale-[1.02]">
 
-                    <span className="text-xs md:text-sm 
-                    bg-gradient-to-r from-cyan-500 to-purple-500
-                    px-3 py-1 rounded-full text-black font-semibold self-start md:self-auto">
-                      2020-2023
-                    </span>
-                  </div>
+  <div className="flex items-start justify-between gap-4">
 
-                  <p className="text-cyan-400 mt-3 text-sm md:text-base">
-                    Vijaya College, Mulki
-                  </p>
+    <div className="flex gap-5">
 
-                  <p className="text-gray-400 text-xs md:text-sm mt-2">
-                    CGPA: <span className="text-white font-semibold">7.84</span>
-                  </p>
+      <img
+        src={vijayaLogo}
+        alt="Vijaya College Logo"
+        className="w-14 h-14 md:w-16 md:h-16 object-contain rounded-xl bg-white p-1"
+      />
 
-                </div>
+      <div>
+        <h5 className="text-lg md:text-xl font-semibold text-white">
+          Bachelor of Computer Applications
+        </h5>
+
+        <p className="text-cyan-400 mt-1 text-sm md:text-base">
+          Vijaya College, Mulki
+        </p>
+
+        <p className="text-gray-400 text-sm mt-2">
+          CGPA: <span className="text-white font-semibold">7.84</span>
+        </p>
+      </div>
+    </div>
+
+    <span className="text-xs md:text-sm 
+    bg-gradient-to-r from-cyan-500 to-purple-500
+    px-4 py-1.5 rounded-full text-black font-semibold whitespace-nowrap">
+      2020 – 2023
+    </span>
+
+  </div>
+</div>
+
 
               </div>
             </div>

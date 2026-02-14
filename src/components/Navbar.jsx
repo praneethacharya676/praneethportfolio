@@ -1,4 +1,11 @@
 import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import {
+  FaLinkedin,
+  FaGithub,
+  FaInstagram,
+  FaFacebook,
+} from "react-icons/fa"
 import ContactModal from "./ContactModal"
 
 function Navbar() {
@@ -17,7 +24,7 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      setScrolled(window.scrollY > 40)
 
       links.forEach((link) => {
         const section = document.getElementById(link.id)
@@ -41,111 +48,161 @@ function Navbar() {
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id)
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" })
-    }
+    if (section) section.scrollIntoView({ behavior: "smooth" })
     setMenuOpen(false)
   }
 
   return (
     <>
       <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
-        <nav
-          className={`w-full max-w-6xl transition-all duration-500
-          backdrop-blur-xl bg-white/5 border border-white/10
-          rounded-full px-6 md:px-8 py-4 flex items-center justify-between
-          ${scrolled ? "shadow-[0_8px_32px_rgba(0,0,0,0.37)]" : ""}
-          `}
+        <div
+          className={`w-full max-w-6xl backdrop-blur-xl bg-black/70 border border-cyan-400/20 rounded-3xl transition-all duration-500 ${
+            scrolled
+              ? "shadow-[0_0_35px_rgba(0,255,255,0.15)]"
+              : "shadow-[0_0_25px_rgba(0,255,255,0.08)]"
+          }`}
         >
-         {/* Logo */}
-<h1
-  onClick={() => scrollToSection("home")}
-  className="text-lg md:text-2xl font-bold cursor-pointer tracking-wide"
->
-  <span className="text-white">Praneeth</span>{""}
-  <span className="text-cyan-400">J</span>{""}
-  <span className="text-gray-400">Acharya</span>
-  <span className="text-cyan-400">.</span>
-</h1>
 
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {links.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className={`relative text-sm transition-all duration-300
-                ${
-                  active === link.id
-                    ? "text-cyan-400"
-                    : "text-gray-400 hover:text-white"
-                }`}
-              >
-                {link.name}
-
-                {active === link.id && (
-                  <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-cyan-400 rounded-full"></span>
-                )}
-              </button>
-            ))}
-          </div>
-
-          {/* Desktop CTA */}
-          <button
-            onClick={() => setOpenModal(true)}
-            className="hidden md:block bg-cyan-500 hover:bg-cyan-600 text-black 
-            font-semibold px-6 py-2 rounded-full transition duration-300"
-          >
-            Contact Me
-          </button>
-
-          {/* Mobile Hamburger */}
+          {/* ===== TOP ROW ===== */}
           <div
-            className="md:hidden text-white text-2xl cursor-pointer"
-            onClick={() => setMenuOpen(!menuOpen)}
+            className={`hidden md:flex justify-between items-center px-8 overflow-hidden transition-all duration-500 ${
+              scrolled
+                ? "max-h-0 py-0 opacity-0"
+                : "max-h-20 py-2 opacity-100"
+            } text-xs text-gray-300 border-b border-white/10`}
           >
-            {menuOpen ? "✕" : "☰"}
-          </div>
-        </nav>
+            <div className="flex items-center gap-6">
+              <a href="tel:+919513281676" className="hover:text-cyan-400">
+                📞 +91 9513281676
+              </a>
+              <a href="mailto:praneethacharya676@gmail.com" className="hover:text-cyan-400">
+                ✉ praneethacharya676@gmail.com
+              </a>
+            </div>
 
-        {/* Mobile Dropdown */}
-        {menuOpen && (
-          <div className="absolute top-20 w-[90%] max-w-sm 
-          backdrop-blur-xl bg-white/5 border border-white/10
-          rounded-2xl p-6 space-y-4 md:hidden shadow-xl">
+            <div className="flex items-center gap-5 text-lg">
+              <a href="https://www.linkedin.com/in/praneeth-acharya09/" target="_blank">
+                <FaLinkedin color="#0A66C2" />
+              </a>
+              <a href="https://github.com/praneethacharya676" target="_blank">
+                <FaGithub color="#ffffff" />
+              </a>
+              <a href="https://www.instagram.com/praneeth._.acharya/" target="_blank">
+                <FaInstagram color="#E4405F" />
+              </a>
+              <a href="https://www.facebook.com/praneeth.acharya09/" target="_blank">
+                <FaFacebook color="#1877F2" />
+              </a>
 
-            {links.map((link) => (
               <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className={`block w-full text-left text-base transition
-                ${
-                  active === link.id
-                    ? "text-cyan-400"
-                    : "text-gray-300 hover:text-white"
-                }`}
+                onClick={() => setOpenModal(true)}
+                className="ml-3 bg-cyan-500 text-black px-4 py-1 rounded-full text-xs font-semibold"
               >
-                {link.name}
+                Contact Me
               </button>
-            ))}
-
-            {/* Mobile CTA FIXED */}
-            <button
-              onClick={() => {
-                setMenuOpen(false)
-                setOpenModal(true)
-              }}
-              className="w-full mt-4 bg-cyan-500
-              text-black font-semibold py-2 rounded-full"
-            >
-              Contact Me
-            </button>
+            </div>
           </div>
-        )}
+
+          {/* ===== MAIN NAVBAR ===== */}
+          <div
+            className={`flex justify-between items-center px-6 md:px-8 transition-all duration-500 ${
+              scrolled ? "py-3" : "py-5"
+            }`}
+          >
+            {/* Logo */}
+            <h1
+              onClick={() => scrollToSection("home")}
+              className={`cursor-pointer font-bold transition-all duration-500 ${
+                scrolled ? "text-lg" : "text-2xl"
+              }`}
+            >
+              <span className="text-white">Praneeth</span>
+              <span className="text-cyan-400">J</span>
+              <span className="text-gray-400">Acharya</span>
+              <span className="text-cyan-400">.</span>
+            </h1>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-6 relative">
+              {links.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="relative px-4 py-2 text-sm"
+                >
+                  {active === link.id && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 bg-cyan-500/15 border border-cyan-400/40 rounded-full"
+                      transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                    />
+                  )}
+                  <span
+                    className={`relative z-10 ${
+                      active === link.id
+                        ? "text-cyan-400"
+                        : "text-gray-400 hover:text-white"
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* Right Side */}
+            <div className="flex items-center gap-4">
+              <a
+                href="/praneeth-cv.pdf"
+                target="_blank"
+                download
+                className="hidden md:block bg-cyan-500 text-black px-6 py-2 rounded-full font-semibold"
+              >
+                Download CV
+              </a>
+
+              <div
+                className="md:hidden text-white text-2xl cursor-pointer"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                {menuOpen ? "✕" : "☰"}
+              </div>
+            </div>
+          </div>
+
+          {/* ===== MOBILE DROPDOWN ===== */}
+          {menuOpen && (
+            <div className="md:hidden border-t border-white/10 p-6 space-y-4">
+              {links.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="block w-full text-left text-gray-300"
+                >
+                  {link.name}
+                </button>
+              ))}
+
+              <div className="flex gap-6 text-2xl pt-2">
+                <FaLinkedin color="#0A66C2" />
+                <FaGithub color="#ffffff" />
+                <FaInstagram color="#E4405F" />
+                <FaFacebook color="#1877F2" />
+              </div>
+
+              <a
+                href="/praneeth-cv.pdf"
+                target="_blank"
+                download
+                className="block text-center bg-cyan-500 text-black py-2 rounded-full font-semibold"
+              >
+                Download Resume
+              </a>
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Modal OUTSIDE nav */}
       <ContactModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}

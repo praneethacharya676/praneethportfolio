@@ -4,7 +4,9 @@ import nptel from "../assets/data-analytics-python.jpg"
 import ieee from "../assets/ieee-paper.jpg"
 import internship from "../assets/internship.jpg"
 import kscst from "../assets/kscst.jpg"
-import matlab from "../assets/matlab.jpg"
+import matlab from "../assets/matlab.png"
+import infosys from "../assets/infosys.jpg"
+
 
 function Certificates() {
   const [selectedImage, setSelectedImage] = useState(null)
@@ -28,6 +30,13 @@ function Certificates() {
       date: "Aug 2025",
       image: kscst,
     },
+    {
+  title: "Big Data Concepts: Getting to Know Big Data",
+  org: "Infosys Springboard",
+  date: "March 2025",
+  image: infosys,
+},
+
     {
       title: "Accenture Data Analytics Simulation",
       org: "Accenture x Forage",
